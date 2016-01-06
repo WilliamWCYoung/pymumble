@@ -70,7 +70,7 @@ class SoundOutput:
                 self.pcm = self.pcm[samples:]
                 self.lock.release()
                 
-		if len(to_encode) != samples:  # pad to_encode if needed to match sample length
+                if len(to_encode) != samples:  # pad to_encode if needed to match sample length
                     to_encode += '\x00'*(samples-len(to_encode))
 
                 encoded = self.encoder.encode(to_encode)
